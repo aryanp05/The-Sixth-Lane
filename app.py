@@ -17,5 +17,6 @@ def run_script():
         message = 'An error occurred while running the script.'
     return render_template('index.html', message=message)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# Run the Flask app
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8000)
