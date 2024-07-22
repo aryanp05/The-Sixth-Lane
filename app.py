@@ -12,9 +12,9 @@ def run_script():
     try:
         # Run the script
         subprocess.run(['python', 'sixthlane.py'], check=True)
-        message = 'Script executed successfully!'
+        message = 'Engine is ready and set.'
     except subprocess.CalledProcessError:
-        message = 'An error occurred while running the script.'
+        message = 'Engine failed, check with the mechanic.'
     return render_template('index.html', message=message)
 
 # Run the Flask app

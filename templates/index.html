@@ -61,6 +61,15 @@
             background: linear-gradient(45deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3));
             z-index: -1;
         }
+        #enginemessage {
+            font-size: 3rem; /* Adjust size as needed */
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ffff, #0000ff); /* Cyan gradient */
+            -webkit-background-clip: text; /* Clip the gradient to text */
+            -webkit-text-fill-color: transparent; /* Make text color transparent */
+            background-clip: text; /* Standard property for gradient text */
+            text-fill-color: transparent; /* Standard property for text color transparency */
+        }
     </style>
 </head>
 <body>
@@ -70,7 +79,7 @@
         <button type="submit">Let's Race</button>
     </form>
     {% if message %}
-        <p>{{ message }}</p>
+        <p id="enginemessage">{{ message }}</p>
     {% endif %}
 </body>
 </html>
