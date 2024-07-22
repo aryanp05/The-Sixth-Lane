@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌌 The Sixth Lane 🌌</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #002d72, #000000); /* Dark blue to black gradient */
+            color: #ffffff; /* White text for contrast */
+            font-family: Arial, sans-serif; /* Clean, modern font */
+            text-align: center; /* Center align text and elements */
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; /* Center horizontally */
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        img {
+            width: 300px; /* Adjust as needed */
+            height: auto;
+            border-radius: 10px; /* Optional: adds rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Optional: adds shadow for a 3D effect */
+            margin-bottom: 20px;
+        }
+        button {
+            background: linear-gradient(45deg, #0056b3, #000000); /* Blue to black gradient */
+            border: none;
+            color: white;
+            padding: 15px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.2rem;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Optional: adds shadow */
+            transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transitions */
+            position: relative;
+        }
+        button:hover {
+            background: linear-gradient(45deg, #007bff, #000000); /* Lighter blue to black gradient on hover */
+            transform: scale(1.05); /* Slightly enlarge button on hover */
+            box-shadow: 0 0 10px #00ffff; /* Cyan glow on hover */
+        }
+        button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px; /* Match button corners */
+            background: linear-gradient(45deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3));
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌌 The Sixth Lane 🌌</h1>
+    <img src="/static/thesixthlane.jpg" alt="The Sixth Lane">
+    <form action="{{ url_for('run_script') }}" method="post">
+        <button type="submit">Let's Race</button>
+    </form>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>
