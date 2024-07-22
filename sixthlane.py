@@ -5,9 +5,9 @@ import time
 
 
 # Retrieve Spotify API credentials from environment variables
-client_id = os.getenv('SPOTIPY_CLIENT_ID')
-client_secret = os.getenv('SPOTIPY_CLIENT_SECRET')
-redirect_uri = os.getenv('SPOTIPY_REDIRECT_URI')
+client_id = os.environ['SPOTIPY_CLIENT_ID']
+client_secret = os.environ['SPOTIPY_CLIENT_SECRET']
+redirect_uri = os.environ['SPOTIPY_REDIRECT_URI']
 scope = 'playlist-modify-public playlist-modify-private playlist-read-private'
 
 # Ensure credentials are loaded
