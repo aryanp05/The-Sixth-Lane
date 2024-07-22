@@ -1,21 +1,24 @@
-from flask import Flask, render_template, request, redirect, url_for
-import subprocess
+from flask import Flask, render_template, redirect, url_for
+import os
+from spotify_script import update_playlist
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 app = Flask(__name__)
 
 @app.route('/')
-def index():
+def home():
     return render_template('index.html')
 
-@app.route('/run-script', methods=['POST'])
+@app.route('/run-script', methods=["POST"])
 def run_script():
     try:
-        # Run the script
-        subprocess.run(['python', 'sixthlane.py'], check=True)
-        message = 'Engine is ready and set.'
-    except subprocess.CalledProcessError:
-        message = 'Engine failed, check with the mechanic.'
-    return render_template('index.html', message=message)
+        update_playlist()
+        return "Playlist updated successfully!"
+    except Exception as e:
+        return f"An error occurred: {str(e)}"
 
 # Run the Flask app
 if __name__ == "__main__":
