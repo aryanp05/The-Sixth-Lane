@@ -1,12 +1,18 @@
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
+import os
 import time
 
-# Spotify API credentials
-client_id = '4a61b0353a2a449aaf81b1e7325f19ef'
-client_secret = '5b5382065e90452da4f7fc0229c0cff7'
-redirect_uri = 'http://localhost:8888/callback'
+
+# Retrieve Spotify API credentials from environment variables
+client_id = os.getenv('SPOTIPY_CLIENT_ID')
+client_secret = os.getenv('SPOTIPY_CLIENT_SECRET')
+redirect_uri = os.getenv('SPOTIPY_REDIRECT_URI')
 scope = 'playlist-modify-public playlist-modify-private playlist-read-private'
+
+# Ensure credentials are loaded
+if not all([client_id, client_secret, redirect_uri]):
+    raise ValueError("Spotify API credentials are not set in environment variables.")
 
 # Authentication
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=client_id,
